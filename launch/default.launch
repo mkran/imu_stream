@@ -1,0 +1,13 @@
+<launch>
+    <!-- Initialize vectornav imu and stream data into ROS -->
+  <node name="imu_stream"	    pkg="imu_stream"   type="imu_stream">
+    <!-- Valid frequency and baudrate values found in vectornav manual -->
+    <param name="buffer_size"  type="int"     value="10"/>
+    <!-- Acceptable frequencies (Hz): 1, 2, 4, 5, 10, 20, 25, 40, 50, 100, 200. May not work for frequencies above 40 Hz -->
+    <param name="frequency"    type="int"     value="40"/>
+    <param name="port"         type="string"  value="/dev/ttyUSB0"/>
+    <!-- Acceptable baud rates: 9600, 19200, 38400, 57600, 115200, 12800, 230400, 460800, 921600. May not work for baudrates above 115200 -->
+    <param name="baudrate"     type="int"     value="115200"/>
+    <param name="force_flat"   type="bool"    value="true"/>
+  </node>
+</launch>
